@@ -1,0 +1,120 @@
+\documentclass[utf8]{FrontiersinHarvard}
+\usepackage{url,hyperref,lineno,microtype,subcaption}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{xspace}
+\usepackage{soul}
+\linenumbers
+
+\newcommand{\package}[1]{\texttt{#1}\xspace}
+\newcommand{\code}[1]{\texttt{#1}\xspace}
+\newcommand{\github}{GitHub\xspace}
+\newcommand{\git}{\code{git}}
+\newcommand{\python}{\package{Python}}
+\newcommand{\sunpy}{SunPy\xspace}
+\newcommand{\sunpyproj}{SunPy project\xspace}
+\newcommand{\sunpypkg}{\package{sunpy}}
+\newcommand{\sunpycode}[1]{\code{#1}}
+\newcommand{\ndcubepkg}{\package{ndcube}}
+\newcommand{\astropy}{Astropy\xspace}
+\newcommand{\astropypkg}{\package{astropy}}
+\newcommand{\aiapypkg}{\package{aiapy}}
+\newcommand{\numpy}{NumPy\xspace}
+\newcommand{\numpypkg}{\package{numpy}}
+\newcommand{\matplotlib}{matplotlib\xspace}
+\newcommand{\matplotlibpkg}{\package{matplotlib}}
+\newcommand{\Map}{\sunpycode{Map}}
+\newcommand{\Timeseries}{\sunpycode{TimeSeries}}
+\newcommand{\Spectra}{\sunpycode{Spectra}}
+\newcommand{\Fido}{\sunpycode{Fido}}
+\newcommand{\hpc}{helioprojective Cartesian\xspace}
+\newcommand{\hcc}{heliocentric Cartesian\xspace}
+\newcommand{\hgs}{Stonyhurst heliographic\xspace}
+\newcommand{\hgc}{Carrington heliographic\xspace}
+\newcommand{\AR}{active region\xspace}
+\renewcommand{\sectionautorefname}{Section}
+\renewcommand{\subsectionautorefname}{Section}
+\renewcommand{\subsubsectionautorefname}{Section}
+
+\def\keyFont{\fontsize{8}{11}\helveticabold}
+\def\firstAuthorLast{The SunPy Community {et~al.}}
+\def\Authors{
+The SunPy Community,
+Barnes, Will T.\,$^{1,2,*,\dagger}$,
+Christe S.$^{1,\dagger}$,
+Freij, N.\,$^{3,4,\dagger}$,
+Hayes, Laura A.\,$^{5,\dagger}$, 
+Stansby, David\,$^{6,\dagger}$,
+Ireland, Jack\,$^{1}$,
+Mumford, Stuart J.\,$^{8}$,
+Ryan, Daniel F.\,$^{7}$,
+and Shih, Albert Y.\,$^{1}$ 
+} 
+% Affiliations should be keyed to the author's name with superscript numbers and be listed as follows: Laboratory, Institute, Department, Organization, City, State abbreviation (USA, Canada, Australia), and Country (without detailed address information such as city zip codes or street names).
+% If one of the authors has a change of address, list the new address below the correspondence details using a superscript symbol and use the same symbol to indicate the author in the author list.
+\def\Address{
+$^{1}$ NASA Goddard Space Flight Center, Greenbelt, MD, USA \\
+$^{2}$ American University, Washington, DC, USA\\
+$^{3}$ Lockheed Martin Solar and Astrophysics Laboratory, Palo Alto, CA, USA \\
+$^{4}$ Bay Area Environmental Research Institute, Moffett Field, CA, USA \\
+$^{5}$ ESTEC, European Space Agency, Noordwijk, The Netherlands \\
+$^{6}$ Advanced Research Computing Centre, University College London, London, United Kingdom \\
+$^{7}$ University of Applied Sciences and Arts Northwest Switzerland, Windisch, Switzerland \\
+$^{8}$ Aperio Software Ltd, Leeds, England \\
+$^\dagger$ These authors contributed equally to this work and share first authorship
+}
+\def\corrAuthor{Barnes, Will T.}
+\def\corrEmail{will.t.barnes@nasa.gov}
+
+\begin{document}
+\onecolumn
+\firstpage{1}
+\title[]{The SunPy Project: An Interoperable Ecosystem for Solar Data Analysis} 
+\author[\firstAuthorLast]{\Authors}
+\address{}
+\correspondance{}
+\extraAuth{}
+\maketitle
+
+\input{sections/0-abstract}
+\input{sections/1-introduction}
+\input{sections/2-code}
+\input{sections/3-people}
+\input{sections/4-community}
+\input{sections/5-roadmap}
+\input{sections/6-conclusion}
+\input{sections/appendix}
+
+\section*{Conflict of Interest Statement}
+The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
+
+\section*{Author Contributions}
+W.T.B. contributed to writing the text and created \autoref{fig:sunpy-core-summary} and \autoref{fig:affiliated-package-showcase}.
+S.C., N.F., L.A.H, and D.S. contributed to writing the text.
+All authors contributed to manuscript planning and revision and have read and approved the submitted version.
+
+\section*{Data Availability Statement}
+All of the data used to create \autoref{fig:affiliated-package-showcase} are publicly available at the following repositories:
+
+\begin{itemize}
+    \item AIA and EUVI data are available through the VSO: \url{https://sdac.virtualsolar.org/cgi/search}
+    \item EUI data are available through the SOAR: \url{https://soar.esac.esa.int/soar/}
+    \item HMI synoptic magnetogram data are available through the JSOC: \url{http://jsoc.stanford.edu/}
+\end{itemize}
+
+Furthermore, the text and accompanying scripts to query, download, and process the data and make\autoref{fig:affiliated-package-showcase} are publicly available in this \github repository: \href{#}{github.com/sunpy/sunpy-frontiers-paper}.
+
+\section*{Funding}
+W.T.B., A.Y.S., and S.J.M. are supported by an award from the NASA Research Opportunities in Space and Earth Sciences (ROSES) Open-Source Tools, Frameworks, and Libraries (OSTFL) program.
+N.F is supported by NASA under contract NNG09FA40C ({\it IRIS}) and NNG04EA00C (SDO/AIA).
+L.A.H is supported by an ESA Research Fellowship.
+We acknowledge financial contributions from Google as part of the Google Summer of Code program and from the European Space Agency as part of the Summer of Code in Space program.
+We acknowledge financial contributions from NumFOCUS for ``Improving the Usability of \sunpypkg’s Data Downloader''.
+Additionally, we acknowledge funding from the Solar Physics Division of the American Astronomical Society for \sunpy workshops and tutorials at annual meetings.
+
+\section*{Acknowledgments}
+We thank everyone that has contributed to the \sunpyproj, that has opened issues and provided feedback, and that have supported the \sunpyproj in any manner.
+\sunpypkg makes use of \astropypkg, a community-developed core Python package for Astronomy \citep{astropy_collaboration_astropy_2022}.
+
+\bibliographystyle{Frontiers-Harvard}
+\bibliography{references}
+\end{document}
