@@ -52,11 +52,11 @@ if __name__ == '__main__':
     f = Fido.fetch(q, path='../data/')
     m_hmi = sunpy.map.Map(f)
 
-    # Identify the center of the AR of interest visually from the synoptic magnetogram 
+    # Identify the center of the AR of interest visually from the synoptic magnetogram
     ar_center = SkyCoord(lon=65*u.deg, lat=15*u.deg, frame=m_hmi.coordinate_frame)
     # We need to correct the obstime of the frame and of the associated observer coordinate.
-    # This is because the default obstime of the carrington map is halfway through the carrington rotation. 
-    # However, because a synoptic map is comprised of observations from many different times, this is not the obstime for any given slice. 
+    # This is because the default obstime of the carrington map is halfway through the carrington rotation.
+    # However, because a synoptic map is comprised of observations from many different times, this is not the obstime for any given slice.
     # Thus, we look up the obstime associated with our selected longitude and use this to correct our original AR coordinate
     ar_date = carrington_rotation_time(int(car_rot), ar_center.lon)
     ar_center_corrected = change_obstime(ar_center, ar_date)
@@ -172,6 +172,6 @@ if __name__ == '__main__':
         ax.coords[1].frame.set_color(frame_color)
         ax.coords[1].frame.set_linewidth(1)
         ax.coords[1].set_ticklabel(rotation=90)
-        
+
     plt.subplots_adjust(hspace=0.0)
     fig.savefig('loops-multi-viewpoint.pdf', bbox_inches='tight')

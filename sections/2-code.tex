@@ -5,7 +5,7 @@
 \label{section:core-package}
 
 The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and is designed to provide the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
-The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs. 
+The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs.
 For a more in-depth description of each of these components, see \citet[Section 4]{sunpy_community2020}.
 
 \begin{figure}
@@ -23,7 +23,7 @@ Once a user has downloaded data, the \code{TimeSeries} and \code{Map} data objec
 These data objects hold the data alongside the associated metadata in order to perform metadata-aware operations such as concatenation for time series or cropping for image data.
 In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.][]{greisen_representations_2002} is also constructed from the associated metadata to enable easy mapping between pixel and world coordinates via \astropypkg.
 
-Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems. 
+Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
 Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g. \hpc) and observer-independent (e.g. \hgs) coordinate frames \citep{thompson_coordinate_2006}.
 Each \code{Map} object instance also carries with it the corresponding coordinate frame of that image and the coordinate of the observer as defined by the position of the observatory given in the associated metadata.
 
