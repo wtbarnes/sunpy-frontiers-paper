@@ -1,8 +1,8 @@
 \section{Code}
-\label{section:code}
+\label{sec:code}
 
 \subsection{The \sunpypkg core package}
-\label{section:core-package}
+\label{ssec:the-sunpypkg-core-package}
 
 The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and is designed to provide the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
 The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs.
@@ -15,16 +15,16 @@ For a more in-depth description of each of these components, see \citet[Section 
     \label{fig:sunpy-core-summary}
 \end{figure}
 
-To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g. the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
+To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
 As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary}, attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
 By providing a single interface to many disparate data sources, \sunpypkg, via \Fido, easily enables multi-instrument research workflows.
 
 Once a user has downloaded data, the \code{TimeSeries} and \code{Map} data objects can be used to load time series and two-dimensional coordinate aware image data, respectively.
 These data objects hold the data alongside the associated metadata in order to perform metadata-aware operations such as concatenation for time series or cropping for image data.
-In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.][]{greisen_representations_2002} is also constructed from the associated metadata to enable easy mapping between pixel and world coordinates via \astropypkg.
+In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.,][]{greisen_representations_2002} is also constructed from the associated metadata to enable easy mapping between pixel and world coordinates via \astropypkg.
 
 Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
-Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g. \hpc) and observer-independent (e.g. \hgs) coordinate frames \citep{thompson_coordinate_2006}.
+Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g., \hpc) and observer-independent (e.g., \hgs) coordinate frames \citep{thompson_coordinate_2006}.
 Each \code{Map} object instance also carries with it the corresponding coordinate frame of that image and the coordinate of the observer as defined by the position of the observatory given in the associated metadata.
 
 There is a new release of the core package with feature enhancements approximately every six months.
@@ -32,12 +32,12 @@ Every other release is designated a long term support (LTS) release and receives
 Additionally, there are bug fix releases every month.
 
 \subsection{Affiliated Packages}
-\label{section:affiliated}
+\label{ssec:affiliated-packages}
 
 As the \sunpypkg package grew and the amount of domain- and instrument-specific code being developed in Python increased, it became increasingly challenging to store and maintain the functionality needed for all solar physics research in one package.
 As such, the affiliated package system was introduced \citep{mumford_stuart_2014_3261752} so that the \sunpypkg core package could be generic such that other packages can build on top of it and applicable to as many missions as possible.
 The goal of this system is to support and promote software packages outside the scope of the \sunpypkg core package, and to provide guidance to developers in implementing and maintaining the specific functionality provided by an affiliated package.
-This fosters code-ownership and the long-term maintenance of code bases, while ensuring the set of affiliated packages are interoperable and follow a set of common standards (see \autoref{sec:affiliated_package_application}).
+This fosters code-ownership and the long-term maintenance of code bases, while ensuring the set of affiliated packages are interoperable and follow a set of common standards (see \autoref{sssec:application-process}).
 This system is designed to benefit both users and developers.
 The \sunpyproj provides development support through our community development efforts and by providing a package template as a foundation.
 In addition, affiliated packages are advertised at conferences and workshops where a \sunpy poster, talk, or tutorial is given.
@@ -54,11 +54,11 @@ Outside of the current list of affiliated packages, current and future NASA and 
 While these packages are not yet affiliated, the \sunpyproj has assisted in coordinating development efforts between these teams in order to foster a more interoperable ecosystem.
 
 \subsubsection{Application Process}
-\label{sec:affiliated_package_application}
+\label{sssec:application-process}
 
-The affiliated package application process is completed in the open on GitHub and is open to all, both individuals and larger collaborations (e.g. instrument teams).
+The affiliated package application process is completed in the open on GitHub and is open to all, both individuals and larger collaborations (e.g., instrument teams).
 To begin the process, an applicant opens an issue on the \sunpyproj website GitHub repository\footnote{\url{https://github.com/sunpy/sunpy.org}} and provides details about the package, including the package name, the maintainers, a link to the code repository, and a link to the documentation.
-The Affiliated Package Liaison (see \autoref{sec:community_roles}) then selects a \sunpyproj member to review the candidate affiliated package against the following criteria:
+The Affiliated Package Liaison (see \autoref{ssec:community-roles}) then selects a \sunpyproj member to review the candidate affiliated package against the following criteria:
 
 \begin{itemize}
     \item \textit{functionality} --- is the package relevant to the solar physics community?
@@ -70,7 +70,7 @@ The Affiliated Package Liaison (see \autoref{sec:community_roles}) then selects 
     \item \textit{development status} --- is the project actively maintained, including versioned releases?
 \end{itemize}
 
-The assigned project member then scores the package in each category using a ``stoplight'' system (i.e. a package is scored green, orange, or red in each category).
+The assigned project member then scores the package in each category using a \enquote{stoplight} system (i.e., a package is scored green, orange, or red in each category).
 A detailed description of each criterion and the scoring for each is available on the affiliated package page of the \sunpyproj website\footnote{\url{https://sunpy.org/project/affiliated}}.
 The submitting author of the affiliated package may also request an alternate reviewer, in which case the Affiliated Package Liaison will assign a new \sunpyproj member to review the package.
 At the end of the review, the candidate package is either accepted, marked as provisional, or not accepted.
@@ -81,7 +81,7 @@ In all cases, the goal of the affiliated package review process is to broaden th
 These criteria are not meant to be exclusionary, but rather to ensure interoperability and consistency across the ecosystem for the benefit of both users and developers.
 
 \subsubsection{Current Ecosystem}
-\label{sec:affiliated-package-ecosystem}
+\label{sssec:current-ecosystem}
 
 At the time of writing, the \sunpyproj has a rich and growing ecosystem of affiliated packages.
 In addition to the \sunpypkg core package, the affiliated package ecosystem includes:

@@ -3,6 +3,8 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage{xspace}
 \usepackage{soul}
+\usepackage{csquotes}
+
 \linenumbers
 
 \newcommand{\package}[1]{\texttt{#1}\xspace}
@@ -85,14 +87,20 @@ $^\dagger$ These authors contributed equally to this work and share first author
 \input{sections/appendix}
 
 \section*{Conflict of Interest Statement}
+\label{sec:conflict-of-interest-statement}
+
 The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.
 
 \section*{Author Contributions}
+\label{sec:author-contributions}
+
 W.T.B. contributed to writing the text and created \autoref{fig:sunpy-core-summary} and \autoref{fig:affiliated-package-showcase}.
 S.C., N.F., L.A.H, and D.S. contributed to writing the text.
 All authors contributed to manuscript planning and revision and have read and approved the submitted version.
 
 \section*{Data Availability Statement}
+\label{sec:data-availability-statement}
+
 All of the data used to create \autoref{fig:affiliated-package-showcase} are publicly available at the following repositories:
 
 \begin{itemize}
@@ -104,14 +112,18 @@ All of the data used to create \autoref{fig:affiliated-package-showcase} are pub
 Furthermore, the text and accompanying scripts to query, download, and process the data and make\autoref{fig:affiliated-package-showcase} are publicly available in this \github repository: \href{#}{github.com/sunpy/sunpy-frontiers-paper}.
 
 \section*{Funding}
+\label{sec:funding}
+
 W.T.B., A.Y.S., and S.J.M. are supported by an award from the NASA Research Opportunities in Space and Earth Sciences (ROSES) Open-Source Tools, Frameworks, and Libraries (OSTFL) program.
 N.F is supported by NASA under contract NNG09FA40C ({\it IRIS}) and NNG04EA00C (SDO/AIA).
 L.A.H is supported by an ESA Research Fellowship.
 We acknowledge financial contributions from Google as part of the Google Summer of Code program and from the European Space Agency as part of the Summer of Code in Space program.
-We acknowledge financial contributions from NumFOCUS for ``Improving the Usability of \sunpypkg's Data Downloader''.
+We acknowledge financial contributions from NumFOCUS for \enquote{Improving the Usability of \sunpypkg's Data Downloader}.
 Additionally, we acknowledge funding from the Solar Physics Division of the American Astronomical Society for \sunpy workshops and tutorials at annual meetings.
 
 \section*{Acknowledgments}
+\label{sec:acknowledgments}
+
 We thank everyone that has contributed to the \sunpyproj, that has opened issues and provided feedback, and that have supported the \sunpyproj in any manner.
 \sunpypkg makes use of \astropypkg, a community-developed core Python package for Astronomy \citep{astropy_collaboration_astropy_2022}.
 
