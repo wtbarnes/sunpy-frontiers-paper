@@ -1,4 +1,5 @@
 main.pdf
+*.loc
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
