@@ -24,3 +24,5 @@ repos:
       - id: check-yaml
       - id: trailing-whitespace
         files: ".*\\.(?:tex|py)$"
+ci:
+  autofix_prs: false
