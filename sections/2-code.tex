@@ -106,8 +106,8 @@ If the package is marked as provisional or is not accepted, the reviewer and the
 
 In all cases, the goal of the affiliated package review process is to broaden the ecosystem of tools for solar data analysis in Python.
 These criteria are not meant to be exclusionary, but rather to ensure interoperability and consistency across the ecosystem for the benefit of both users and developers.
-\added[id=NF]{Interoperability in this context encompasses several topics but the main enforcement is that affiliated packages will make use of the existing \sunpypkg core data structures, \code{Map} and \code{Timeseries}, as inputs and outputs to methods and functions and provide their data in these data structures and not in their own custom data structures.
-This also applies for downloading data, where it should interface with \code{Fido}, the downloader via a custom client.}
+\added[id=NF]{Interoperability, in this context, means that affiliated packages should make use of the existing \sunpypkg core data structures, (e.g. \code{Map} and \code{Timeseries}), wherever possible in lieu of their own custom data structures.
+In the context of searching for and downloading data, affiliated packages should use the \Fido interface and extend \Fido for additional data sources as needed.}
 
 \subsubsection{Current Ecosystem}
 \label{sssec:current-ecosystem}
