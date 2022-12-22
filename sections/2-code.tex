@@ -4,10 +4,10 @@
 \subsection{The \sunpypkg core package}
 \label{ssec:the-sunpypkg-core-package}
 
-The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and is designed to provide the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
+The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and provides the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
 The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs.
 For a more in-depth description of each of these components, see \citet[Section 4]{sunpy_community2020}.
-\added[id=NF]{\sunpypkg provides detailed Application Programming Interface (API) documentation}\footnote{https://docs.sunpy.org/en/stable/}.
+\added[id=NF]{The full documentation of the \sunpypkg Application Programming Interface (API) is provided in the hosted online documentation}\footnote{The \sunpypkg API is fully documented here: \url{https://docs.sunpy.org}}.
 
 \begin{figure}
     \centering
@@ -21,13 +21,13 @@ For a more in-depth description of each of these components, see \citet[Section 
 
 To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
 \added[id=WTB]{A complete list of all supported data sources is provided in the documentation for using \Fido}\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
-\added[id=WTB]{Whereas, Section 4.1.1 of} \citep{sunpy_community2020} \added[id=WTB]{also provides a comprehensive discussion of the data sources that \Fido searches by default.}
+\added[id=WTB]{Section 4.1.1 of} \citep{sunpy_community2020} \added[id=WTB]{also provides a comprehensive discussion of the data sources that \Fido searches by default.}
 \added[id=WTB]{Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see} \autoref{sssec:current-ecosystem}).
 As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary}, attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
 By providing a single interface to many disparate data sources, \sunpypkg, via \Fido, easily enables multi-instrument research workflows.
 
-Once a user has downloaded data, the \code{TimeSeries} and \code{Map} data objects can be used to load time series and two-dimensional image data, respectively.
-These data objects hold the data alongside the associated metadata in order to perform metadata-aware operations such as concatenation for time series or cropping for image data.
+Once a user has downloaded data, the \code{TimeSeries} and \code{Map} objects can be used to load time series and two-dimensional image data, respectively.
+These objects hold the data alongside the associated metadata in order to perform metadata-aware operations such as concatenation for time series or cropping for image data.
 In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.,][]{greisen_representations_2002} is also constructed from the associated metadata to enable easy mapping between pixel and world coordinates via \astropypkg.
 
 Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
@@ -37,8 +37,8 @@ Each \code{Map} object instance also carries with it the corresponding coordinat
 \subsubsection{Testing Infrastructure}
 \label{sssec:testing-infrastructure}
 
-\added[id=WTB]{\sunpypkg includes thousands of unit, regression and integration tests that are run using the \code{pytest} testing framework and includes tests of the documentation.
-This test suite is run on every pull request opened on the \sunpypkg \github using \github Actions to ensure that contributions to the codebase do not lead to unexpected regressions.
+\added[id=WTB]{\sunpypkg includes thousands of unit, regression and integration tests that are run using the \code{pytest} testing framework.
+This test suite is run on every pull request opened on the \sunpypkg \github repository using \github Actions to ensure that contributions to the codebase do not lead to unexpected regressions.
 A full description of our testing practices can be found in our developer documentation.}\footnote{A complete guide to running the tests and the associated infrastructure can be found here:\url{https://docs.sunpy.org/en/latest/dev_guide/contents/tests.html}}
 
 \subsubsection{Release Schedule}
@@ -59,15 +59,14 @@ If the packages build successfully, they are automatically uploaded to to Python
 \label{ssec:affiliated-packages}
 
 As the \sunpypkg package grew and the amount of domain- and instrument-specific code being developed in Python increased, it became increasingly challenging to store and maintain the functionality needed for all solar physics research in one package.
-As such, the affiliated package system was introduced \citep{mumford_stuart_2014_3261752} so that the \sunpypkg core package could be generic such that other packages can build on top of it and applicable to as many missions as possible.
+As such, the affiliated package system was introduced \citep{mumford_stuart_2014_3261752} so that the \sunpypkg core package could be generic enough for other packages to build on top of\deleted[id=WTB]{ and applicable to as many missions as possible}.
 The goal of this system is to support and promote software packages outside the scope of the \sunpypkg core package, and to provide guidance to developers in implementing and maintaining the specific functionality provided by an affiliated package.
-This fosters code-ownership and the long-term maintenance of code bases, while ensuring the set of affiliated packages are interoperable and follow a set of common standards (see \autoref{sssec:application-process}).
-This system is designed to benefit both users and developers.
+This fosters code-ownership while ensuring the set of affiliated packages are interoperable and follow a set of common standards (see \autoref{sssec:application-process}).
 The \sunpyproj provides development support through our community development efforts and by providing a package template as a foundation.
 In addition, affiliated packages are advertised at conferences and workshops where a \sunpy poster, talk, or tutorial is given.
 
-As a result, components of the \sunpypkg core package that were tied directly to specific instruments or data analysis methods have recently been moved out into other affiliated packages.
-One example of this is \aiapypkg, a package for processing data from the Atmospheric Imaging Assembly \citep[AIA,][]{lemen_atmospheric_2012} on the \textit{Solar Dynamics Observatory} \citep[SDO,][]{pesnell_solar_2012}.
+As a result of the creation of the affiliated package ecosystem, components of the \sunpypkg core package that were tied directly to specific instruments or data analysis methods have recently been moved out into other affiliated packages.
+One example of this is \aiapypkg \citep{barnes_aiapy_2020}, a package for processing data from the Atmospheric Imaging Assembly \citep[AIA,][]{lemen_atmospheric_2012} on the \textit{Solar Dynamics Observatory} \citep[SDO,][]{pesnell_solar_2012}.
 Prior to version 2.1, \sunpypkg included functionality for calibrating level 1 AIA data.
 In 2019, in collaboration with the \sunpyproj, the AIA instrument team began developing \aiapypkg to provide a number of AIA-specific analysis routines in Python, including the aforementioned calibration software.
 \aiapypkg became an affiliated package in 2020 and the AIA-specific functionality that previously lived in \sunpypkg was deprecated and subsequently removed.
@@ -76,13 +75,6 @@ At the same time, \aiapypkg users and developers are able to take full advantage
 
 Outside of the current list of affiliated packages, current and future NASA and ESA missions \footnote{This includes, but is not limited to, the Interface Region Imaging Spectrometer (IRIS), several instruments on \textit{Solar Orbiter}, as well as the X-Ray Telescope (XRT) and the Extreme ultraviolet Imaging Spectrometer (EIS) onboard \textit{Hinode}}, as well as ground-based telescopes, such as the Daniel K. Inouye Solar Telescope (DKIST), have begun developing user tools for data analysis and/or pipelines for data calibration built on top of the \sunpy ecosystem.
 While these packages are not yet affiliated, the \sunpyproj has assisted in coordinating development efforts between these teams in order to foster a more interoperable ecosystem.
-
-\added[id=NF]{The goal of the \sunpyproj is to slowly increase the number of affiliated packages.
-This brings the challenge of ensuring that the quality of all affiliated packages never declines.
-Quality is somewhat subjective when it comes to software, as the Application Process below outlines, several metrics enable a cursory glance at the quality of a package.
-In the future (funded by a Roses Grant), automation of these metrics and collating more information on the \sunpyproj website is planned.
-In addition, we would like to start doing annual re-reviews of all affiliated packages.
-There is much work to be done on this front and we welcome any contributions to this effort.}
 
 \subsubsection{Application Process}
 \label{sssec:application-process}
@@ -107,6 +99,7 @@ The submitting author of the affiliated package may also request an alternate re
 At the end of the review, the candidate package is either accepted, marked as provisional, or not accepted.
 If the package is accepted, the affiliated package is added to the list of affiliated packages on the \sunpyproj website.
 If the package is marked as provisional or is not accepted, the reviewer and the Affiliated Package Liaison will work with the package authors to help them achieve provisional or accepted status.
+\added[id=WTB]{Accepted affiliated packages are reviewed once a year to ensure the interoperability of the ecosystem does not regress and that affiliated packages are actively maintained.}
 
 In all cases, the goal of the affiliated package review process is to broaden the ecosystem of tools for solar data analysis in Python.
 These criteria are not meant to be exclusionary, but rather to ensure interoperability and consistency across the ecosystem for the benefit of both users and developers.
