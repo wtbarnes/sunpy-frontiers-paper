@@ -2,8 +2,8 @@
 \usepackage{url,hyperref,lineno,microtype,subcaption}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{xspace}
-\usepackage{soul}
 \usepackage{csquotes}
+\usepackage[draft,addedmarkup=uuline]{changes}
 
 \linenumbers
 
@@ -13,7 +13,7 @@
 \newcommand{\git}{\code{git}}
 \newcommand{\python}{\package{Python}}
 \newcommand{\sunpy}{SunPy\xspace}
-\newcommand{\sunpyproj}{SunPy project\xspace}
+\newcommand{\sunpyproj}{SunPy Project\xspace}
 \newcommand{\sunpypkg}{\package{sunpy}}
 \newcommand{\sunpycode}[1]{\code{#1}}
 \newcommand{\ndcubepkg}{\package{ndcube}}
@@ -67,6 +67,10 @@ $^\dagger$ These authors contributed equally to this work and share first author
 \def\corrAuthor{Barnes, Will T.}
 \def\corrEmail{will.t.barnes@nasa.gov}
 
+% This is for tracking changes
+\definechangesauthor[name={Will Barnes}, color=orange]{WTB}
+\definechangesauthor[name={Nabil Freij}, color=blue]{NF}
+
 \begin{document}
 \onecolumn
 \firstpage{1}
@@ -109,7 +113,7 @@ All of the data used to create \autoref{fig:affiliated-package-showcase} are pub
     \item HMI synoptic magnetogram data are available through the JSOC: \url{http://jsoc.stanford.edu/}
 \end{itemize}
 
-Furthermore, the text and accompanying scripts to query, download, and process the data and make\autoref{fig:affiliated-package-showcase} are publicly available in this \github repository: \href{#}{github.com/sunpy/sunpy-frontiers-paper}.
+Furthermore, the text and accompanying scripts to query, download, and process the data and make \autoref{fig:affiliated-package-showcase} are publicly available in the \github repository\footnote{\url{https://github.com/sunpy/sunpy-frontiers-paper}} that accompanies this paper.
 
 \section*{Funding}
 \label{sec:funding}
@@ -129,4 +133,8 @@ We thank everyone that has contributed to the \sunpyproj, that has opened issues
 
 \bibliographystyle{Frontiers-Harvard}
 \bibliography{references}
+
+% This is for tracking changes
+\listofchanges
+
 \end{document}
