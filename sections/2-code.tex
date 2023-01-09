@@ -122,7 +122,7 @@ In addition to the \sunpypkg core package, the affiliated package ecosystem incl
 \end{itemize}
 
 To demonstrate how several of the affiliated packages can be used together with \sunpypkg in a scientific workflow, we show an example in \autoref{fig:affiliated-package-showcase} of how coronal loop structures can be analyzed using potential magnetic field extrapolations and multi-point extreme ultraviolet (EUV) observations.
-\added[id=WTB]{We have included a Jupyter notebook that illustrates each step of this workflow in the \github repository that accompanies this paper.}\footnote{The \github repository for this paper, including the complete text and all code to generate Figure \autoref{fig:affiliated-package-showcase}, can be found at \url{https://github.com/sunpy/sunpy-frontiers-paper}}
+\added[id=WTB]{We have included a Jupyter notebook that illustrates each step of this workflow in the \github repository that accompanies this paper.}\footnote{The \github repository for this paper, including the complete text and all code to generate \autoref{fig:affiliated-package-showcase}, can be found at \url{https://github.com/sunpy/sunpy-frontiers-paper}}
 
 First, we use the \Fido interface provided by \sunpypkg to search for and download a synoptic magnetogram from the Helioseismic Magnetic Imager \citep[HMI,][]{scherrer_helioseismic_2012} on SDO for Carrington rotation 2255 which began on 2022-03-08.
 This is shown in the left panel in the top row of \autoref{fig:affiliated-package-showcase}.
@@ -155,6 +155,6 @@ Viewing the \AR from the vantage points of these three spacecraft (separated by 
 Additionally, we use the \package{pfsspy} package to compute a potential field extrapolation from the corresponding synoptic magnetogram as shown in the top row of \autoref{fig:affiliated-package-showcase}.
 We trace field lines from areas of negative magnetic flux inside the red box corresponding to \AR 12976.
 The resulting field lines are overlaid in green on top of the cutouts from each EUV image in the bottom row of \autoref{fig:affiliated-package-showcase}.
-Each field line traced using \package{pfsspy} is an \astropypkg coordinate object expressed in terms of an \hgc coordinate frame defined in \sunpypkg.
+Each field line traced using \package{pfsspy} is an \astropypkg coordinate object expressed in terms of a \hgc coordinate frame defined in \sunpypkg.
 As such, it is straightforward to transform each field line to the observer-dependent coordinate frame of each image as defined by corresponding observatory using the plotting functionality provided in \astropypkg.
 The interoperability between \astropypkg, \sunpypkg, \package{sunpy-soar}, \aiapypkg, and \package{pfsspy} allows us to easily examine the three-dimensional magnetic structure of the \AR and see to what extent the derived potential field corresponds to the EUV emission as observed by these three spacecraft.
