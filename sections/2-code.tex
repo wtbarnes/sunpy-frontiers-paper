@@ -20,6 +20,7 @@ For a more in-depth description of each of these components, see \citet[Section 
 \label{sssec:components-of-the-core-package}
 
 To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
+\Fido itself is a collection of classes that define formal API for users as well as the the search attributes and how each data provider interprets those attributes in order to do the actual search internally.
 \added[id=WTB]{A complete list of all supported data sources is provided in the documentation for using \Fido}\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
 \added[id=WTB]{Section 4.1.1 of} \citep{sunpy_community2020} \added[id=WTB]{also provides a comprehensive discussion of the data sources that \Fido searches by default.}
 \added[id=WTB]{Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see} \autoref{sssec:current-ecosystem}).
@@ -33,6 +34,11 @@ In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.,][]{greise
 Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
 Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g., \hpc) and observer-independent (e.g., \hgs) coordinate frames \citep{thompson_coordinate_2006}.
 Each \code{Map} object instance also carries with it the corresponding coordinate frame of that image and the coordinate of the observer as defined by the position of the observatory given in the associated metadata.
+Whereas for \code{TimeSeries}, the metadata is commonly in a very different style, so there is generally little overlap between the metadata of a \code{TimeSeries} object and the metadata of a \code{Map} object.
+
+As we will cover in \ref{ssec:affiliated-packages}, the \sunpypkg package part of a larger ecosystem of packages that provide additional functionality for solar physics research.
+So one might ask why \sunpypkg is not simply a collection of these packages, why is there a separation of \enquote{core} vs \enquote{non-core} packages?
+The answer is that the \sunpypkg package, the core, is to provide a common set of tools that allow a user to do basic solar physics research without having to install anything else.
 
 \subsubsection{Testing Infrastructure}
 \label{sssec:testing-infrastructure}
@@ -132,7 +138,7 @@ The red box overlaid on the synoptic magnetogram is centered on the \AR when it 
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/loops-multi-viewpoint.pdf}
-    \caption{Illustration of multiple affiliated packages working together.
+    \caption{Illustration of multiple affiliated packages working together (\sunpypkg, \aiapypkg, \pfsspypkg and \soarpkg).
              \textbf{Top row:} The left panel shows the HMI synoptic magnetogram for Carrington rotation 2255. The red box is centered on the \AR that appeared near disk center on 2022-03-29 21:04 UTC. The right panel shows the \hgs longitude and radius (in AU) for SDO, STEREO A, and \textit{Solar Orbiter} on 2022-03-29.
              \textbf{Middle row:} Full disk images from SDO AIA at 171 Å (left), SolO FSI at 174 Å (middle), and STEREO-A EUVI at 171 Å (right) at approximately 2022-03-29 21:00 UTC.
              The red box in each panel is centered on the AR shown in the top panel and has a width and height of 700 arcseconds.
