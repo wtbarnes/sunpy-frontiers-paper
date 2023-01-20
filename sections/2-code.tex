@@ -20,7 +20,7 @@ For a more in-depth description of each of these components, see \citet[Section 
 \label{sssec:components-of-the-core-package}
 
 To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
-\Fido itself is a collection of classes that define formal API for users as well as the the search attributes and how each data provider interprets those attributes in order to do the actual search internally.
+\Fido internally is a collection of classes that define the search API for users including the search attributes and how a data provider interprets those attributes in order to do the final network call to any server.
 \added[id=WTB]{A complete list of all supported data sources is provided in the documentation for using \Fido}\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
 \added[id=WTB]{Section 4.1.1 of} \citep{sunpy_community2020} \added[id=WTB]{also provides a comprehensive discussion of the data sources that \Fido searches by default.}
 \added[id=WTB]{Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see} \autoref{sssec:current-ecosystem}).
@@ -34,11 +34,15 @@ In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.,][]{greise
 Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
 Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g., \hpc) and observer-independent (e.g., \hgs) coordinate frames \citep{thompson_coordinate_2006}.
 Each \code{Map} object instance also carries with it the corresponding coordinate frame of that image and the coordinate of the observer as defined by the position of the observatory given in the associated metadata.
-Whereas for \code{TimeSeries}, the metadata is commonly in a very different style, so there is generally little overlap between the metadata of a \code{TimeSeries} object and the metadata of a \code{Map} object.
+Whereas for \code{TimeSeries}, the metadata has a very different style as a result that there is no common format for timeseries data.
+Therefore in practice there is generally little overlap between the metadata of a \code{TimeSeries} object and the metadata of a \code{Map} object.
 
 As we will cover in \ref{ssec:affiliated-packages}, the \sunpypkg package part of a larger ecosystem of packages that provide additional functionality for solar physics research.
-So one might ask why \sunpypkg is not simply a collection of these packages, why is there a separation of \enquote{core} vs \enquote{non-core} packages?
-The answer is that the \sunpypkg package, the core, is to provide a common set of tools that allow a user to do basic solar physics research without having to install anything else.
+So one might ask why is the \sunpypkg not simply a collection of these packages, why is there a separation of \enquote{core} vs \enquote{non-core} functionally?
+The \sunpyproj defines the \enquote{core}, as the tools needed to do standard solar physics research.
+This means in practice, finding and downloading data, opening the data and plotting the data.
+Scientists will analyse data in so many bespoke ways that adding analysis tools without bloating \sunpypkg package is impossible.
+Therefore the decision was made to ensure that the \enquote{core} enabled scientists to get to the point where they can apply their own tools on top.
 
 \subsubsection{Testing Infrastructure}
 \label{sssec:testing-infrastructure}
