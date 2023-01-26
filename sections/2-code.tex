@@ -142,12 +142,15 @@ The red box overlaid on the synoptic magnetogram is centered on the \AR when it 
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/loops-multi-viewpoint.pdf}
-    \caption{Illustration of multiple affiliated packages working together.
-             \textbf{Top row:} The left panel shows the HMI synoptic magnetogram for Carrington rotation 2255. The red box is centered on the \AR that appeared near disk center on 2022-03-29 21:04 UTC. The right panel shows the \hgs longitude and radius (in AU) for SDO, STEREO A, and \textit{Solar Orbiter} on 2022-03-29.
-             \textbf{Middle row:} Full disk images from SDO AIA at 171 Å (left), SolO FSI at 174 Å (middle), and STEREO-A EUVI at 171 Å (right) at approximately 2022-03-29 21:00 UTC.
-             The red box in each panel is centered on the AR shown in the top panel\deleted[id=WTB]{ and has a width and height of 700 arcseconds}.
-             \textbf{Bottom row:} Cutouts of the regions denoted in each image in the middle row.
-             The field lines shown in green are derived from a potential field extrapolation from the synoptic magnetogram shown in the top row.}
+    \caption{
+        Illustration of multiple affiliated packages, including \sunpypkg, \soarpkg, \aiapypkg, and \pfsspypkg, working together.
+        \textbf{Top row:} The left panel shows the HMI synoptic magnetogram for Carrington rotation 2255. The red box is centered on the \AR\deleted[id=WTB]{that appeared near disk center on 2022-03-29 21:04 UTC}. The right panel shows the \hgs longitude and radius (in AU) for SDO, STEREO A, and \textit{Solar Orbiter} on 2022-03-29.
+        \textbf{Middle row:} Full disk images from SDO AIA at 171 Å (left), SolO FSI at 174 Å (middle), and STEREO-A EUVI at 171 Å (right)\deleted[id=WTB]{ at approximately 2022-03-29 21:00 UTC}. All three images were downloaded using \sunpypkg along with \soarpkg to query the SOAR for the \textit{Solar Orbiter} image. The AIA image was calibrated using \aiapypkg.
+        The red box in each panel is centered on the AR shown in the top panel\deleted[id=WTB]{ and has a width and height of 700 arcseconds}.
+        \textbf{Bottom row:} Cutouts of the regions denoted in each image in the middle row.
+        \added[id=WTB]{\pfsspypkg is used to compute a potential magnetic field solution from the magnetogram (top row) and trace field lines through the resulting volume.
+        These field lines are shown in green are transformed to the appropriate coordinate system of each instrument using \sunpypkg}.
+    }
     \label{fig:affiliated-package-showcase}
 \end{figure}
 
