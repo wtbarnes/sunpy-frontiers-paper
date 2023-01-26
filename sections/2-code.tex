@@ -7,7 +7,7 @@
 The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and provides the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
 The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs.
 For a more in-depth description of each of these components, see \citet[Section 4]{sunpy_community2020}.
-\added[id=NF]{The full documentation of the \sunpypkg Application Programming Interface (API) is provided in the hosted online documentation}\footnote{The \sunpypkg API is fully documented here: \url{https://docs.sunpy.org}}.
+The full documentation of the \sunpypkg Application Programming Interface (API) is provided in the hosted online documentation\footnote{The \sunpypkg API is fully documented here: \url{https://docs.sunpy.org}}.
 
 \begin{figure}
     \centering
@@ -21,9 +21,9 @@ For a more in-depth description of each of these components, see \citet[Section 
 
 To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
 \Fido internally is a collection of classes that define the search API for users including the search attributes and how a data provider interprets those attributes in order to do the final network call to any server.
-\added[id=WTB]{A complete list of all supported data sources is provided in the documentation for using \Fido}\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
-\added[id=WTB]{Section 4.1.1 of} \citep{sunpy_community2020} \added[id=WTB]{also provides a comprehensive discussion of the data sources that \Fido searches by default.}
-\added[id=WTB]{Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see} \autoref{sssec:current-ecosystem}).
+A complete list of all supported data sources is provided in the documentation for using \Fido\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
+Section 4.1.1 of \citep{sunpy_community2020} also provides a comprehensive discussion of the data sources that \Fido searches by default.
+Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see \autoref{sssec:current-ecosystem}).
 As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary}, attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
 By providing a single interface to many disparate data sources, \sunpypkg, via \Fido, easily enables multi-instrument research workflows.
 
@@ -47,9 +47,9 @@ Therefore the decision was made to ensure that the \enquote{core} enabled scient
 \subsubsection{Testing Infrastructure}
 \label{sssec:testing-infrastructure}
 
-\added[id=WTB]{\sunpypkg includes thousands of unit, regression and integration tests that are run using the \code{pytest} testing framework.
+\sunpypkg includes thousands of unit, regression and integration tests that are run using the \code{pytest} testing framework.
 This test suite is run on every pull request opened on the \sunpypkg \github repository using \github Actions to ensure that contributions to the codebase do not lead to unexpected regressions.
-A full description of our testing practices can be found in our developer documentation.}\footnote{A complete guide to running the tests and the associated infrastructure can be found here:\url{https://docs.sunpy.org/en/latest/dev_guide/contents/tests.html}}
+A full description of our testing practices can be found in our developer documentation.\footnote{A complete guide to running the tests and the associated infrastructure can be found here:\url{https://docs.sunpy.org/en/latest/dev_guide/contents/tests.html}}
 
 \subsubsection{Release Schedule}
 \label{sssec:release-schedule}
@@ -57,19 +57,19 @@ A full description of our testing practices can be found in our developer docume
 There is a new release of the core package with feature enhancements approximately every six months.
 Every other release is designated a long term support (LTS) release and receives bug fixes for a year rather than for six months.
 Additionally, there are bug fix releases every month.
-\added[id=WTB]{For each release a digital object identifier (DOI) is automatically generated and a record is created on Zenodo.}\footnote{The most current release on Zenodo can be found here: \url{https://doi.org/10.5281/zenodo.7314636}}
-\added[id=WTB]{By providing regularly scheduled, versioned releases of \sunpypkg, the \sunpyproj enables reproducibility.
-For example, if a researcher is attempting to reproduce a result from a paper that used \sunpypkg v2.0.2, she can create a new virtual environment and install that exact version of \sunpypkg, even if the current version is many versions ahead of v2.0.2.}
+For each release a digital object identifier (DOI) is automatically generated and a record is created on Zenodo.\footnote{The most current release on Zenodo can be found here: \url{https://doi.org/10.5281/zenodo.7314636}}
+By providing regularly scheduled, versioned releases of \sunpypkg, the \sunpyproj enables reproducibility.
+For example, if a researcher is attempting to reproduce a result from a paper that used \sunpypkg v2.0.2, she can create a new virtual environment and install that exact version of \sunpypkg, even if the current version is many versions ahead of v2.0.2.
 
-\added[id=WTB]{This release process is completely automated through \github Actions.}\footnote{The \github Actions templates used are available here: \url{https://github.com/OpenAstronomy/github-actions-workflows}}
-\added[id=WTB]{When a release is tagged, an action is triggered that tests the package on all supported versions of Python and all supported operating systems.
-If the packages build successfully, they are automatically uploaded to to Python Package Index (PyPi) and subsequently the release is updated on \code{conda-forge}.}
+This release process is completely automated through \github Actions.\footnote{The \github Actions templates used are available here: \url{https://github.com/OpenAstronomy/github-actions-workflows}}
+When a release is tagged, an action is triggered that tests the package on all supported versions of Python and all supported operating systems.
+If the packages build successfully, they are automatically uploaded to to Python Package Index (PyPi) and subsequently the release is updated on \code{conda-forge}.
 
 \subsection{Affiliated Packages}
 \label{ssec:affiliated-packages}
 
 As the \sunpypkg package grew and the amount of domain- and instrument-specific code being developed in Python increased, it became increasingly challenging to store and maintain the functionality needed for all solar physics research in one package.
-As such, the affiliated package system was introduced \citep{mumford_stuart_2014_3261752} so that the \sunpypkg core package could be generic enough for other packages to build on top of\deleted[id=WTB]{ and applicable to as many missions as possible}.
+As such, the affiliated package system was introduced \citep{mumford_stuart_2014_3261752} so that the \sunpypkg core package could be generic enough for other packages to build on.
 The goal of this system is to support and promote software packages outside the scope of the \sunpypkg core package, and to provide guidance to developers in implementing and maintaining the specific functionality provided by an affiliated package.
 This fosters code-ownership while ensuring the set of affiliated packages are interoperable and follow a set of common standards (see \autoref{sssec:application-process}).
 The \sunpyproj provides development support through our community development efforts and by providing a package template as a foundation.
@@ -109,12 +109,12 @@ The submitting author of the affiliated package may also request an alternate re
 At the end of the review, the candidate package is either accepted, marked as provisional, or not accepted.
 If the package is accepted, the affiliated package is added to the list of affiliated packages on the \sunpyproj website.
 If the package is marked as provisional or is not accepted, the reviewer and the Affiliated Package Liaison will work with the package authors to help them achieve provisional or accepted status.
-\added[id=WTB]{Accepted affiliated packages are reviewed once a year to ensure the interoperability of the ecosystem does not regress and that affiliated packages are actively maintained.}
+Accepted affiliated packages are reviewed once a year to ensure the interoperability of the ecosystem does not regress and that affiliated packages are actively maintained.
 
 In all cases, the goal of the affiliated package review process is to broaden the ecosystem of tools for solar data analysis in Python.
 These criteria are not meant to be exclusionary, but rather to ensure interoperability and consistency across the ecosystem for the benefit of both users and developers.
-\added[id=NF]{Interoperability in this context, means that affiliated packages should make use of the existing \sunpypkg core data structures, (e.g., \code{Map} and \code{Timeseries}), in lieu of their own custom data structures.
-In the context of searching for and downloading data, affiliated packages should use the \Fido interface and extend \Fido for additional data sources as needed.}
+Interoperability in this context, means that affiliated packages should make use of the existing \sunpypkg core data structures, (e.g., \code{Map} and \code{Timeseries}), in lieu of their own custom data structures.
+In the context of searching for and downloading data, affiliated packages should use the \Fido interface and extend \Fido for additional data sources as needed.
 
 \subsubsection{Current Ecosystem}
 \label{sssec:current-ecosystem}
@@ -132,7 +132,7 @@ In addition to the \sunpypkg core package, the affiliated package ecosystem incl
 \end{itemize}
 
 To demonstrate how several of the affiliated packages can be used together with \sunpypkg in a scientific workflow, we show an example in \autoref{fig:affiliated-package-showcase} of how coronal loop structures can be analyzed using potential magnetic field extrapolations and multi-point extreme ultraviolet (EUV) observations.
-\added[id=WTB]{We have included a Jupyter notebook that illustrates each step of this workflow in the \github repository that accompanies this paper.}\footnote{The \github repository for this paper, including the complete text and all code to generate \autoref{fig:affiliated-package-showcase}, can be found at \url{https://github.com/sunpy/sunpy-frontiers-paper}}
+We have included a Jupyter notebook that illustrates each step of this workflow in the \github repository that accompanies this paper.\footnote{The \github repository for this paper, including the complete text and all code to generate \autoref{fig:affiliated-package-showcase}, can be found at \url{https://github.com/sunpy/sunpy-frontiers-paper}}
 
 First, we use the \Fido interface provided by \sunpypkg to search for and download a synoptic magnetogram from the Helioseismic Magnetic Imager \citep[HMI,][]{scherrer_helioseismic_2012} on SDO for Carrington rotation 2255 which began on 2022-03-08.
 This is shown in the left panel in the top row of \autoref{fig:affiliated-package-showcase}.
@@ -142,13 +142,12 @@ The red box overlaid on the synoptic magnetogram is centered on the \AR when it 
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/loops-multi-viewpoint.pdf}
-    \caption{Illustration of multiple affiliated packages working together (\sunpypkg, \aiapypkg, \pfsspypkg and \soarpkg).
+    \caption{Illustration of multiple affiliated packages working together.
              \textbf{Top row:} The left panel shows the HMI synoptic magnetogram for Carrington rotation 2255. The red box is centered on the \AR that appeared near disk center on 2022-03-29 21:04 UTC. The right panel shows the \hgs longitude and radius (in AU) for SDO, STEREO A, and \textit{Solar Orbiter} on 2022-03-29.
              \textbf{Middle row:} Full disk images from SDO AIA at 171 Å (left), SolO FSI at 174 Å (middle), and STEREO-A EUVI at 171 Å (right) at approximately 2022-03-29 21:00 UTC.
-             The red box in each panel is centered on the AR shown in the top panel and has a width and height of 700 arcseconds.
+             The red box in each panel is centered on the AR shown in the top panel\deleted[id=WTB]{ and has a width and height of 700 arcseconds}.
              \textbf{Bottom row:} Cutouts of the regions denoted in each image in the middle row.
-             The field lines shown in green are derived from a potential field extrapolation from the synoptic magnetogram shown in the top row.
-    }
+             The field lines shown in green are derived from a potential field extrapolation from the synoptic magnetogram shown in the top row.}
     \label{fig:affiliated-package-showcase}
 \end{figure}
 
