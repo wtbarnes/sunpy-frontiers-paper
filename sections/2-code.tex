@@ -5,6 +5,12 @@
 \label{ssec:the-sunpypkg-core-package}
 
 The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and provides the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
+\added[id=NF]{As we will discuss in }\autoref{ssec:affiliated-packages}, \added{\sunpypkg functions as one part of a larger ecosystem of packages for doing solar physics research in Python.
+While other packages in the ecosystem may focus on particular analysis techniques or analyzing data from specific instruments, the \sunpypkg ``core'' package is focused on providing general tools for working with solar physics data.
+As an example, coordinate transformations between common solar coordinate systems are provided by the \sunpypkg core package because they are needed for the analysis of nearly all solar imaging data and are critical for performing multi-instrument studies.
+However, correcting an AIA image to account for instrument degradation would not belong in \sunpypkg because it is specific to data from one instrument.
+This allows the \sunpypkg core package to be relatively small in size, thereby assuring its maintainability over time.}
+
 The primary components of the \sunpypkg package are \deleted[id=WTB]{summarized graphically in \autoref{fig:sunpy-core-summary} and }described briefly in the following paragraphs.
 For a more in-depth description of each of these components, see \citet[Section 4]{sunpy_community2020}.
 The full documentation of the \sunpypkg Application Programming Interface (API) is provided in the hosted online documentation\footnote{The \sunpypkg API is fully documented here: \url{https://docs.sunpy.org}}.
@@ -13,29 +19,24 @@ The full documentation of the \sunpypkg Application Programming Interface (API) 
 \label{sssec:components-of-the-core-package}
 
 To search for and download data, \sunpypkg provides the \Fido interface for searching across a variety of data providers (e.g., the Virtual Solar Observatory (VSO)\footnote{\url{https://sdac.virtualsolar.org/cgi/search}}, or the Joint Science Operations Center (JSOC)\footnote{\url{http://jsoc.stanford.edu}}) maintained within the solar community.
-\Fido internally is a collection of classes that define the search API for users including the search attributes and how a data provider interprets those attributes in order to do the final network call to any server.
+\added[id=NF]{Internally, \Fido is both an interface that defines the search API for creating data queries as well as a collection of client classes that provide a translation between this user-facing API and the search parameters accepted by individual data providers.}
 A complete list of all supported data sources is provided in the documentation for using \Fido\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
-Section 4.1.1 of \citep{sunpy_community2020} also provides a comprehensive discussion of the data sources that \Fido searches by default.
+Section 4.1.1 of \citet{sunpy_community2020} also provides a comprehensive discussion of the data sources that \Fido searches by default.
 Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see \autoref{sssec:current-ecosystem}).
 \deleted[id=WTB]{As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary},}Attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
 By providing a single interface to many disparate data sources, \sunpypkg, via \Fido, easily enables multi-instrument research workflows.
 
-Once a user has downloaded data, the \code{TimeSeries} and \code{Map} objects can be used to load time series and two-dimensional image data, respectively.
+Once a user has downloaded data, the \code{TimeSeries} and \code{Map} objects can be used to load and visualize time series and two-dimensional image data, respectively.
 These objects hold the data alongside the associated metadata in order to perform metadata-aware operations such as concatenation for time series or cropping for image data.
 In the case of \code{Map}, a World Coordinate System \citep[WCS, e.g.,][]{greisen_representations_2002} is also constructed from the associated metadata to enable easy mapping between pixel and world coordinates via \astropypkg.
+\added[id=WTB]{In nearly all cases, solar image data is stored in the FITS format }\citep{wells_fits_1981} \added[id=WTB]{which has an accompanying well-defined metadata standard} \citep{pence_definition_2010}.
+\added[id=WTB]{The accompanying metadata for each \code{Map} object adheres to this standard.
+Solar time series data, however, do not have a standard metadata or file format and may be stored in a variety of file formats, including FITS, netCDF, JSON, or plain text.}
+\added[id=NF]{As such, the metadata associated with each \code{TimeSeries} object is much more sparse compared to \code{Map}, but at minimum will include the time of each observation as well as the associated instrument that made the observation.}
 
 Additionally, by extending the \astropypkg coordinates framework \citep[see Section 3.3 of][for more details]{the_astropy_collaboration_astropy_2018}, \sunpypkg provides definitions of, and transformations between, common solar coordinate systems.
 Coordinates expressed using these frames can be used to represent the positional information of solar features and events. \sunpypkg implements both observer-dependent (e.g., \hpc) and observer-independent (e.g., \hgs) coordinate frames \citep{thompson_coordinate_2006}.
 Each \code{Map} object instance also carries with it the corresponding coordinate frame of that image and the coordinate of the observer as defined by the position of the observatory given in the associated metadata.
-Whereas for \code{TimeSeries}, the metadata has a very different style as a result that there is no common format for timeseries data.
-Therefore in practice there is generally little overlap between the metadata of a \code{TimeSeries} object and the metadata of a \code{Map} object.
-
-As we will cover in \autoref{ssec:affiliated-packages}, the \sunpypkg package part of a larger ecosystem of packages that provide additional functionality for solar physics research.
-So one might ask why is the \sunpypkg not simply a collection of these packages, why is there a separation of \enquote{core} vs \enquote{non-core} functionally?
-The \sunpyproj defines the \enquote{core}, as the tools needed to do standard solar physics research.
-This means in practice, finding and downloading data, opening the data and plotting the data.
-Scientists will analyse data in so many bespoke ways that adding analysis tools without bloating \sunpypkg package is impossible.
-Therefore the decision was made to ensure that the \enquote{core} enabled scientists to get to the point where they can apply their own tools on top.
 
 \subsubsection{Testing Infrastructure}
 \label{sssec:testing-infrastructure}
@@ -142,7 +143,7 @@ The red box overlaid on the synoptic magnetogram is centered on the \AR when it 
         The red box in each panel is centered on the AR shown in the top panel\deleted[id=WTB]{ and has a width and height of 700 arcseconds}.
         \textbf{Bottom row:} Cutouts of the regions denoted in each image in the middle row.
         \added[id=WTB]{\pfsspypkg is used to compute a potential magnetic field solution from the magnetogram (top row) and trace field lines through the resulting volume.
-        These field lines are shown in green are transformed to the appropriate coordinate system of each instrument using \sunpypkg}.
+        These field lines, shown in green, are transformed to the appropriate coordinate system of each instrument using \sunpypkg}.
     }
     \label{fig:affiliated-package-showcase}
 \end{figure}
