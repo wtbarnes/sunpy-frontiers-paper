@@ -5,16 +5,9 @@
 \label{ssec:the-sunpypkg-core-package}
 
 The \sunpypkg package is the central pillar of the \sunpyproj \citep{sunpy_community2020} and provides the fundamental tools for accessing, loading, and interacting with solar physics data in Python.
-The primary components of the \sunpypkg package are summarized graphically in \autoref{fig:sunpy-core-summary} and described briefly in the following paragraphs.
+The primary components of the \sunpypkg package are \deleted[id=WTB]{summarized graphically in \autoref{fig:sunpy-core-summary} and }described briefly in the following paragraphs.
 For a more in-depth description of each of these components, see \citet[Section 4]{sunpy_community2020}.
 The full documentation of the \sunpypkg Application Programming Interface (API) is provided in the hosted online documentation\footnote{The \sunpypkg API is fully documented here: \url{https://docs.sunpy.org}}.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\columnwidth]{figures/sunpy-summary-slide.pdf}
-    \caption{A summary of the capabilities of the \sunpypkg core package. \sunpypkg provides search and download functionality, data containers for image and time series data, as well as commonly used coordinate frames and transformations between such frames.}
-    \label{fig:sunpy-core-summary}
-\end{figure}
 
 \subsubsection{Components of the Core Package}
 \label{sssec:components-of-the-core-package}
@@ -24,7 +17,7 @@ To search for and download data, \sunpypkg provides the \Fido interface for sear
 A complete list of all supported data sources is provided in the documentation for using \Fido\footnote{\url{https://docs.sunpy.org/en/stable/guide/acquiring_data/fido.html}}.
 Section 4.1.1 of \citep{sunpy_community2020} also provides a comprehensive discussion of the data sources that \Fido searches by default.
 Additionally, \Fido can also be extended to search additional data sources that may not be included in \sunpypkg (e.g., the Solar Orbiter Archive, see \autoref{sssec:current-ecosystem}).
-As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary}, attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
+\deleted[id=WTB]{As illustrated in the leftmost column of \autoref{fig:sunpy-core-summary},}Attributes such as time, wavelength, and instrument name, among others, can be used to filter these search results.
 By providing a single interface to many disparate data sources, \sunpypkg, via \Fido, easily enables multi-instrument research workflows.
 
 Once a user has downloaded data, the \code{TimeSeries} and \code{Map} objects can be used to load time series and two-dimensional image data, respectively.
